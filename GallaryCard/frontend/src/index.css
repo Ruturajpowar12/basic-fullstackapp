@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(130deg, #b4a1f4, #15b1c6);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 10px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 500;
+  font-size: 50px;
+}
+p {
+  text-align: center;
+  font-weight: 900;
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  gap: 10px;
+}
