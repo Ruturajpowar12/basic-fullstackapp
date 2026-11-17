@@ -1,21 +1,31 @@
 import express, { json } from "express";
 import dotenv from "dotenv";
 
-const app = express();
 dotenv.config();
+
+const app = express();
 const PORT = process.env.PORT || 4000;
+
+app.use(json());
 
 app.get("/", (req, res) => {
   res.send("Animal Info");
 });
 
-app.get("/api/dogs", (req, res) => {
-  async function getData() {
+app.get("/api/dogs", async (req, res) => {
+  try {
     const response = await fetch("https://dog.ceo/api/breeds/image/random");
 
-    const data = response.json();
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    res.send(data);
+  } catch (error) {
+    console.error("Error fetching dog image:", error);
   }
-  res.send(getData());
 });
 
 app.listen(PORT, () => {
